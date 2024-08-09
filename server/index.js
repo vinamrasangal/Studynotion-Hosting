@@ -25,12 +25,13 @@ database.connect();
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-	cors({
-		origin: "*",
-		credentials: true,
-	})
-);
+
+app.use(cors({
+    origin: 'https://studynotion-frontend-blush.vercel.app', // Restrict to specific origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow specific methods
+    credentials: true // Allow credentials
+}));
+
 app.use(
 	fileUpload({
 		useTempFiles: true,
@@ -47,6 +48,8 @@ app.use("/api/v1/profile", profileRoutes);
 app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/payment", paymentRoutes);
 app.use("/api/v1/reach", contactUsRoute);
+
+app.options("*", cors());
 
 // Testing the server
 app.get("/", (req, res) => {
