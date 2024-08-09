@@ -1,4 +1,3 @@
-
 # StudyNotion Edtech Project
 
 🚀 https://studynotion-frontend-blush.vercel.app/
