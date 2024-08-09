@@ -49,7 +49,7 @@ app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/payment", paymentRoutes);
 app.use("/api/v1/reach", contactUsRoute);
 
-app.options("*", cors());
+// app.options("*", cors());
 
 // Testing the server
 app.get("/", (req, res) => {
